@@ -1,0 +1,351 @@
+/* Arone Bd Shop — reference-inspired compact MOBILE layout.
+   Load this AFTER globals.css and mobile-ui.css. Scoped to the shop page. */
+.arone-shop-mobile-top,
+.arone-filter-close { display: none; }
+.arone-filter-title h3 { margin: 0 0 18px; }
+.arone-filter-actions { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+.arone-filter-reset { border: 0; background: transparent; color: #205337; font-size: 12px; font-weight: 700; }
+.arone-filter-error { color: #b33535; font-size: 12px; }
+.arone-shop-state { grid-column: 1 / -1; padding: 20px 0; }
+.arone-shop-pages button:disabled { opacity: .4; cursor: not-allowed; }
+
+@media (max-width: 780px) {
+  /* Absolutely no large title or pre-opened filter on mobile. */
+  .arone-reference-shop.section { padding-top: 10px !important; padding-bottom: 20px !important; min-width: 0; }
+  .arone-reference-shop .breadcrumb,
+  .arone-reference-shop .shop-header,
+  .arone-reference-shop .arone-shop-desktop-heading,
+  .arone-reference-shop .arone-desktop-sort,
+  .arone-reference-shop .shop-results > .sort-bar { display: none !important; }
+
+  .arone-reference-shop .arone-shop-mobile-top { display: block !important; margin: 0 0 12px; }
+  .arone-reference-shop .arone-shop-mobile-crumb {
+    display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px;
+    min-height: 26px; margin-bottom: 11px; color: #6f786c; font-size: 12px;
+  }
+  .arone-reference-shop .arone-shop-mobile-crumb strong { font-size: 14px; color: #26372c; }
+  .arone-reference-shop .arone-shop-mobile-controls {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px;
+  }
+  .arone-reference-shop .arone-shop-filter-toggle {
+    position: relative; display: grid; place-items: center; flex: 0 0 45px;
+    width: 45px; height: 35px; border: 0; border-radius: 3px;
+    background: #354703; color: white; font-size: 23px; line-height: 1;
+  }
+  .arone-reference-shop .arone-filter-counter:not(:empty) {
+    position: absolute; right: -4px; top: -5px; min-width: 16px; height: 16px;
+    display: grid; place-items: center; padding: 1px 3px; border-radius: 50%;
+    background: #e43350; color: white; font: 700 10px Arial,sans-serif;
+  }
+  .arone-reference-shop .arone-shop-mobile-controls select {
+    flex: 0 1 155px; width: 155px; max-width: 60%; height: 35px;
+    margin: 0; padding: 6px 9px; border: 1px solid #d8dfd4; border-radius: 3px;
+    background: #fff; color: #26372c; font-size: 12px;
+  }
+
+  .arone-reference-shop .shop-layout { display: block !important; min-width: 0; }
+  .arone-reference-shop .shop-layout > aside.filters { display: none !important; }
+  .arone-reference-shop .shop-layout > aside.filters.is-open {
+    display: block !important; width: 100%; margin: 0 0 12px; padding: 14px;
+    border: 1px solid #e0e7dc; border-radius: 8px; background: white;
+  }
+  .arone-reference-shop .arone-filter-title { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .arone-reference-shop .arone-filter-title h3 { margin: 0; font-size: 17px; }
+  .arone-reference-shop .arone-filter-close { display: grid; place-items: center; border: 0; background: #eef4ea; width: 30px; height: 30px; border-radius: 5px; }
+  .arone-reference-shop .shop-results { min-width: 0; width: 100%; }
+  .arone-reference-shop .shop-grid {
+    display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important; margin: 0;
+  }
+  .arone-reference-shop .product-card { min-width: 0; width: 100%; overflow: hidden; border-radius: 6px; }
+  .arone-reference-shop .product-image { display: block; aspect-ratio: 1 / 1; overflow: hidden; background: white; }
+  .arone-reference-shop .product-image img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .arone-reference-shop .card-content { padding: 7px 6px 8px; text-align: center; }
+  .arone-reference-shop .card-content .eyebrow { display: none; }
+  .arone-reference-shop .product-title {
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
+    overflow: hidden; min-height: 32px; margin: 5px 0; font-size: 11px; line-height: 1.4;
+  }
+  .arone-reference-shop .price-row { justify-content: center; flex-wrap: wrap; gap: 5px; margin: 6px 0; }
+  .arone-reference-shop .price-row strong { font-size: 14px; }
+  .arone-reference-shop .price-row del { font-size: 11px; }
+  .arone-reference-shop .arone-product-actions { display: grid; grid-template-columns: 1fr; gap: 5px; margin-top: 5px; }
+  .arone-reference-shop .arone-product-actions button {
+    display: block; width: 100%; min-height: 31px; padding: 5px 3px;
+    border-radius: 20px; font-size: 11px; line-height: 1.3;
+  }
+  .arone-reference-shop .arone-wishlist-toggle { top: 6px; right: 6px; width: 30px; height: 30px; }
+  .arone-reference-shop .arone-shop-pages { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 5px; margin-top: 16px; }
+  .arone-reference-shop .arone-shop-pages button { min-width: 34px; height: 34px; }
+}
+
+@media (max-width: 350px) {
+  .arone-reference-shop .shop-grid { gap: 7px !important; }
+  .arone-reference-shop .card-content { padding: 6px 4px; }
+  .arone-reference-shop .arone-product-actions button { font-size: 10px; }
+}
+
+
+/* ==========================================
+   ARONE BD - COMPACT MOBILE DESIGN
+========================================== */
+
+@media screen and (max-width: 780px) {
+
+  /* SHOP PAGE */
+
+  .arone-reference-shop {
+    padding-top: 10px !important;
+    padding-bottom: 85px;
+  }
+
+  /* Hide large desktop heading */
+
+  .arone-reference-shop .shop-header,
+  .arone-reference-shop .arone-shop-desktop-heading,
+  .arone-reference-shop > .breadcrumb {
+    display: none !important;
+  }
+
+  /* Compact mobile breadcrumb */
+
+  .arone-reference-shop .arone-shop-mobile-top {
+    display: block !important;
+    margin-bottom: 12px;
+  }
+
+  .arone-reference-shop .arone-shop-mobile-crumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .arone-reference-shop .arone-shop-mobile-crumb strong {
+    font-size: 13px;
+  }
+
+  /* Filter and Sort in one row */
+
+  .arone-reference-shop .arone-shop-mobile-controls {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .arone-reference-shop .arone-shop-filter-toggle {
+    min-width: 43px;
+    height: 36px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 17px;
+  }
+
+  .arone-reference-shop .arone-shop-mobile-controls select {
+    width: auto;
+    max-width: 185px;
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 6px;
+  }
+
+  /* Hide desktop sort bar */
+
+  .arone-reference-shop .arone-desktop-sort {
+    display: none !important;
+  }
+
+  /* Filter stays closed until clicked */
+
+  .arone-reference-shop .shop-layout {
+    display: block;
+  }
+
+  .arone-reference-shop .filters {
+    display: none !important;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 13px;
+  }
+
+  .arone-reference-shop .filters.is-open {
+    display: block !important;
+  }
+
+  .arone-reference-shop .filters h3 {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .arone-reference-shop .filters label {
+    font-size: 12px;
+  }
+
+  .arone-reference-shop .filters > button {
+    font-size: 12px;
+    padding: 9px;
+  }
+
+  .arone-reference-shop .range-inputs input {
+    min-width: 0;
+    padding: 9px 7px;
+    font-size: 12px;
+  }
+
+  .arone-reference-shop .filter-submit,
+  .arone-reference-shop .arone-filter-reset {
+    min-height: 36px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* Product Grid */
+
+  .arone-reference-shop .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .arone-reference-shop .product-card {
+    width: 100%;
+    min-width: 0;
+    border-radius: 8px;
+  }
+
+  .arone-reference-shop .card-content {
+    padding: 8px 6px;
+  }
+
+  .arone-reference-shop .product-title {
+    font-size: 11px;
+    line-height: 1.4;
+    min-height: 32px;
+  }
+
+  .arone-reference-shop .card-content .eyebrow {
+    display: none;
+  }
+
+  .arone-reference-shop .price-row strong {
+    font-size: 13px;
+  }
+
+  .arone-reference-shop .price-row del {
+    font-size: 10px;
+  }
+
+  /* Smaller Bengali Buttons */
+
+  .arone-reference-shop .arone-product-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .arone-reference-shop .arone-product-actions button {
+    width: 100%;
+    min-height: 34px;
+    padding: 6px 4px;
+    border-radius: 18px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+}
+
+
+/* Extra Small Mobile */
+
+@media screen and (max-width: 360px) {
+
+  .arone-reference-shop .shop-grid {
+    gap: 7px;
+  }
+
+  .arone-reference-shop .card-content {
+    padding: 6px 5px;
+  }
+
+  .arone-reference-shop .product-title {
+    font-size: 10px;
+  }
+
+}
+
+
+/* Compact Shop - Mobile Only */
+
+@media (max-width: 780px) {
+
+  .arone-reference-shop > .breadcrumb,
+  .arone-reference-shop .arone-shop-desktop-heading {
+    display: none !important;
+  }
+
+  .arone-reference-shop .arone-shop-mobile-top {
+    display: block !important;
+    margin-bottom: 12px;
+  }
+
+  .arone-reference-shop .arone-shop-mobile-crumb {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-size: 12px;
+  }
+
+  .arone-reference-shop .arone-shop-mobile-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .arone-reference-shop .arone-shop-filter-toggle {
+    width: 44px;
+    height: 38px;
+    border: 0;
+    border-radius: 5px;
+    background: #344703;
+    color: #ffffff;
+    font-size: 22px;
+  }
+
+  .arone-reference-shop .arone-shop-mobile-controls select {
+    max-width: 190px;
+    height: 38px;
+    font-size: 12px;
+  }
+
+  .arone-reference-shop .shop-layout {
+    display: block !important;
+  }
+
+  .arone-reference-shop .filters:not(.is-open) {
+    display: none !important;
+  }
+
+  .arone-reference-shop .filters.is-open {
+    display: block !important;
+    margin-bottom: 14px;
+  }
+
+  .arone-reference-shop .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+}
+
+@media (min-width: 781px) {
+  .arone-shop-mobile-top {
+    display: none;
+  }
+}

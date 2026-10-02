@@ -1,0 +1,8 @@
+import { prisma } from '@/lib/prisma';
+import { adminUser, sameOrigin } from '@/lib/auth';
+export const dynamic = 'force-dynamic';
+
+function cleanImage(value){ const text=String(value||'').trim(); if(!text)return''; if(/^data:image\/(png|jpeg|webp);base64,/i.test(text)){ if(text.length>700000) throw new Error('Image is too large. Use an optimized image under 450 KB.'); return text; } if(text.startsWith('/')) return text.slice(0,1000); try{const u=new URL(text); if(u.protocol==='https:') return text.slice(0,1000);}catch{} throw new Error('Use PNG/JPG/WebP upload, an HTTPS URL, or a local public path.'); }
+
+export async function GET(){ try{ if(!(await adminUser())) return Response.json({error:'Forbidden'},{status:403}); const media=await prisma.pageMedia.findMany({orderBy:{updatedAt:'desc'}}); return Response.json({media}); }catch(error){console.error('Page media GET:',error);return Response.json({error:'Could not load media library.'},{status:500});} }
+export async function POST(request){ try{ if(!sameOrigin(request))return Response.json({error:'Invalid request origin'},{status:403}); if(!(await adminUser()))return Response.json({error:'Forbidden'},{status:403}); const body=await request.json(); const name=String(body?.name||'').trim().slice(0,160); if(!name)return Response.json({error:'Media name is required.'},{status:400}); const url=cleanImage(body?.url); if(!url)return Response.json({error:'Image is required.'},{status:400}); const item=await prisma.pageMedia.create({data:{name,alt:String(body?.alt||'').trim().slice(0,220),url}}); return Response.json({item},{status:201}); }catch(error){console.error('Page media POST:',error);return Response.json({error:error?.message||'Could not save media.'},{status:400});} }

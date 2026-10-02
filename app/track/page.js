@@ -1,0 +1,1 @@
+import {Suspense} from 'react';import TrackPage from '@/components/TrackPage';export const metadata={title:'অর্ডার ট্র্যাকিং'};export default function Page(){return <Suspense fallback={<main className="container section">লোড হচ্ছে...</main>}><TrackPage/></Suspense>}

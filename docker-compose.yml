@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: paaikar
+      POSTGRES_PASSWORD: paaikar_dev_only
+      POSTGRES_DB: paaikar
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - paaikar_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U paaikar -d paaikar"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  paaikar_pgdata:

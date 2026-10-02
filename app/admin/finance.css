@@ -1,0 +1,37 @@
+/* Finance V3: entirely scoped; never overrides storefront or unrelated admin pages. */
+.ar-finance .ar-finance-note{background:#edf8f1;border:1px solid #cbe6d5;color:#27563d;border-radius:10px;padding:14px 16px;font-size:12px;line-height:1.6;margin-bottom:16px}
+.ar-finance .ar-finance-toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px}
+.ar-finance .ar-finance-toolbar label{display:flex;gap:8px;align-items:center;font-size:12px;font-weight:700}
+.ar-finance select,.ar-finance input{border:1px solid #d5e4d9;border-radius:9px;background:#fff;color:#18392b;padding:10px 11px;max-width:100%;min-height:42px;font-size:12px;width:100%}
+.ar-finance .ar-finance-toolbar select{min-width:150px;width:auto}
+.ar-finance .ar-finance-result{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin:14px 0}
+.ar-finance .ar-finance-result>div{display:flex;flex-direction:column;gap:9px;background:#205b42;color:#fff;border-radius:14px;padding:18px 21px}
+.ar-finance .ar-finance-result>div+div{background:#ebf5ee;color:#183b2c;border:1px solid #d1e6d7}
+.ar-finance .ar-finance-result span{font-size:12px;opacity:.85}
+.ar-finance .ar-finance-result strong{font-size:clamp(23px,3vw,30px);font-weight:850}
+.ar-finance .ar-finance-result small{font-size:11px;opacity:.77;line-height:1.5}
+.ar-finance .ar-finance-result .negative{color:#ffd6d6}
+.ar-finance .ar-finance-warning{background:#fff4e4;border:1px solid #efd8b1;border-radius:10px;padding:12px 14px;color:#704b15;font-size:12px}
+.ar-finance .ar-finance-success{background:#e9f7ed;color:#185b37;padding:12px 14px;border:1px solid #bce3c8;border-radius:10px;font-size:12px}
+.ar-finance .ar-finance-chart{min-height:156px;display:grid;grid-template-columns:repeat(14,minmax(0,1fr));align-items:end;gap:6px;overflow:hidden}
+.ar-finance .ar-finance-day{min-width:0;display:flex;flex-direction:column;gap:7px;align-items:center}
+.ar-finance .ar-finance-day small{font-size:9px;color:#7a9080;white-space:nowrap}
+.ar-finance .ar-finance-bar-track{height:121px;width:100%;max-width:33px;background:#ecf4ee;display:flex;align-items:flex-end;border-radius:7px 7px 3px 3px;overflow:hidden}
+.ar-finance .ar-finance-bar-track>div{width:100%;background:#34845f;border-radius:5px 5px 2px 2px}
+.ar-finance .ar-finance-copy{font-size:12px;color:#66776c;line-height:1.75}
+.ar-finance .ar-finance-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;align-items:end}
+.ar-finance .ar-finance-form label{display:flex;min-width:0;flex-direction:column;gap:6px;font-size:11px;font-weight:750;color:#365540}
+.ar-finance .ar-finance-form>.ar-action{justify-self:start}
+.ar-finance .ar-finance-wide{grid-column:1/-1}
+.ar-finance .ar-finance-order-note{display:flex;flex-wrap:wrap;align-items:center;gap:7px 14px;padding:13px;background:#f0f6f1;border-radius:10px;font-size:12px}
+.ar-finance .ar-finance-order-note span{display:block;width:100%}
+.ar-finance .ar-finance-order-note small{display:block;color:#617a69;line-height:1.4}
+.ar-finance .ar-finance-order-note .ar-soft-action{padding:8px 10px;min-height:34px}
+.ar-finance .ar-finance-form-foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;font-weight:750}
+.ar-finance .ar-finance-form-foot b{color:#176042}
+.ar-finance .ar-finance-sub{display:block;font-size:10px;color:#8c6464;margin-top:4px}
+.ar-finance .ar-finance-footnote{font-size:11px;color:#758c7b;line-height:1.7;margin:20px 0}
+.ar-finance button:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:740px){.ar-finance .ar-finance-result{grid-template-columns:1fr}.ar-finance .ar-finance-form{grid-template-columns:1fr}.ar-finance .ar-finance-toolbar{align-items:stretch}.ar-finance .ar-finance-toolbar label{justify-content:space-between}.ar-finance .ar-finance-chart{gap:3px}.ar-finance .ar-finance-day small{font-size:8px}.ar-finance .ar-finance-form-foot{align-items:stretch}.ar-finance .ar-finance-form-foot .ar-action{width:100%}}
+
+.ar-finance .ar-finance-history{margin-top:18px;padding:13px;background:#f4f8f5;border:1px solid #d9e7dd;border-radius:10px}.ar-finance .ar-finance-history h3{margin:0 0 8px;font-size:13px}.ar-finance .ar-finance-history>div{padding:9px 0;border-bottom:1px solid #e2eae4;font-size:11px}.ar-finance .ar-finance-history>div:last-child{border:0}.ar-finance .ar-finance-history small{display:block;color:#64796c;margin-top:4px}

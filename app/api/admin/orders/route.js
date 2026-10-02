@@ -1,0 +1,2 @@
+import {prisma} from '@/lib/prisma';import {adminUser} from '@/lib/auth';import {json} from '@/lib/http';
+export async function GET(req){if(!await adminUser())return json({error:'Forbidden'},403);const status=new URL(req.url).searchParams.get('status');const valid=['PENDING','CONFIRMED','SHIPPED','DELIVERED','CANCELLED'];const orders=await prisma.order.findMany({where:valid.includes(status)?{status}:{},include:{items:true},orderBy:{createdAt:'desc'},take:300});return json({orders});}

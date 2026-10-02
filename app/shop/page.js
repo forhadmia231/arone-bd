@@ -1,0 +1,1 @@
+import {Suspense} from 'react';import Shop from '@/components/Shop';export const metadata={title:'সব পণ্য'};export default function ShopPage(){return <Suspense fallback={<main className="container section">লোড হচ্ছে...</main>}><Shop/></Suspense>}

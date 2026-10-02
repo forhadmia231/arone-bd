@@ -1,0 +1,6 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const {slugify,positiveInt,nonNegativeInt,imageUrl,safeReturnTo,shippingFee}=require('../lib/validate.cjs');
+test('Bangla slugs and transliterated slugs are stable',()=>{assert.equal(slugify('কাস্ট আয়রন ১০ ইঞ্চি'), 'কাস্ট-আয়রন-১০-ইঞ্চি');assert.equal(slugify(' Cast Iron! '),'cast-iron')});
+test('quantity and prices reject invalid values',()=>{assert.equal(positiveInt(0),null);assert.equal(positiveInt(-5),null);assert.equal(positiveInt('1.5'),null);assert.equal(positiveInt(10),10);assert.equal(nonNegativeInt(0),0)});
+test('image URL is restricted to HTTPS or known local folders',()=>{assert.equal(imageUrl('javascript:alert(1)'),'/products/default.svg');assert.equal(imageUrl('http://example.com/a.jpg'),'/products/default.svg');assert.equal(imageUrl('/uploads/a.png'),'/uploads/a.png')});
+test('shipping fee is deterministic and calculated on server too',()=>{assert.equal(shippingFee('ঢাকা'),70);assert.equal(shippingFee('Dhaka'),70);assert.equal(shippingFee('Sylhet'),130)});
+test('unsafe redirects not accepted',()=>{assert.equal(safeReturnTo('//evil.tld'),'/account');assert.equal(safeReturnTo('/shop'),'/shop')});

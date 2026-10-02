@@ -1,0 +1,16 @@
+node_modules
+.next
+.env
+.env.local
+.env.*.local
+public/uploads/*
+!public/uploads/.gitkeep
+*.log
+coverage
+node_modules/
+.next/
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local

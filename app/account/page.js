@@ -1,0 +1,1 @@
+import {Suspense} from 'react';import AccountPage from '@/components/AccountPage';export const metadata={title:'অ্যাকাউন্ট'};export default function Page(){return <Suspense fallback={<>লোড হচ্ছে...</>}><AccountPage/></Suspense>}

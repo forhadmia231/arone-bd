@@ -1,0 +1,3 @@
+import {prisma} from '@/lib/prisma';import {json,readJson} from '@/lib/http';import {sameOrigin} from '@/lib/auth';import {string} from '@/lib/validate';
+// Tracking deliberately returns only status and date, not private address/details.
+export async function POST(req){if(!sameOrigin(req))return json({error:'Invalid request origin'},403);const b=await readJson(req);const orderNo=string(b?.orderNo,70),phone=string(b?.phone,25);if(!orderNo||!phone)return json({error:'Order ID and phone required'},400);const order=await prisma.order.findFirst({where:{orderNo,phone},select:{orderNo:true,status:true,createdAt:true,total:true}});return order?json({order}):json({error:'তথ্য মেলেনি।'},404);}

@@ -1,0 +1,105 @@
+/* ARONE BD — Product card animations
+   Append this entire file to the END of app/globals.css.
+   Designed for the existing ProductCard.jsx CSS classes.
+*/
+
+/* Product cards enter with a gentle stagger. */
+.product-grid > .product-card {
+  animation: aroneCardEnter .55s cubic-bezier(.2,.7,.2,1) backwards;
+}
+.product-grid > .product-card:nth-child(2) { animation-delay: .05s; }
+.product-grid > .product-card:nth-child(3) { animation-delay: .10s; }
+.product-grid > .product-card:nth-child(4) { animation-delay: .15s; }
+.product-grid > .product-card:nth-child(5) { animation-delay: .20s; }
+.product-grid > .product-card:nth-child(6) { animation-delay: .25s; }
+.product-grid > .product-card:nth-child(7) { animation-delay: .30s; }
+.product-grid > .product-card:nth-child(8) { animation-delay: .35s; }
+
+@keyframes aroneCardEnter {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Default state remains light and responsive. */
+.product-card {
+  transition: transform .26s ease, box-shadow .26s ease, border-color .26s ease;
+}
+.product-image img {
+  transition: transform .48s cubic-bezier(.2,.8,.2,1), filter .48s ease;
+}
+.product-card .arone-product-actions button {
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+/* Hover only on pointer devices, avoiding sticky mobile hover. */
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover,
+  .product-card:focus-within {
+    transform: translateY(-7px);
+    box-shadow: 0 16px 34px rgba(22, 71, 42, .14);
+    border-color: #bcd5b7;
+  }
+  .product-card:hover .product-image img,
+  .product-card:focus-within .product-image img {
+    transform: scale(1.075);
+    filter: saturate(1.06);
+  }
+  .product-card .arone-product-actions button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(24, 68, 46, .18);
+  }
+  .product-card .arone-product-actions button:hover:not(:disabled)::after {
+    transform: translateX(160%) skewX(-20deg);
+  }
+}
+
+/* One swipe of light across product action buttons. */
+.product-card .arone-product-actions button::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  bottom: 0;
+  left: -70%;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  transform: translateX(-90%) skewX(-20deg);
+  transition: transform .55s ease;
+}
+
+/* Feedback when the existing add-to-cart state changes. */
+.product-card.cart-added .arone-product-actions button:first-child {
+  animation: aroneCartTap .38s ease-out;
+}
+@keyframes aroneCartTap {
+  0%, 100% { transform: scale(1); }
+  45% { transform: scale(1.045); }
+}
+
+@media (hover: none) {
+  .product-card .arone-product-actions button:active:not(:disabled) {
+    transform: scale(.975);
+  }
+}
+
+/* Respect motion accessibility preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .product-grid > .product-card,
+  .product-card.cart-added .arone-product-actions button:first-child {
+    animation: none !important;
+  }
+  .product-card,
+  .product-image img,
+  .product-card .arone-product-actions button,
+  .product-card .arone-product-actions button::after {
+    transition: none !important;
+  }
+  .product-card:hover,
+  .product-card:focus-within,
+  .product-card:hover .product-image img,
+  .product-card:focus-within .product-image img {
+    transform: none !important;
+  }
+}

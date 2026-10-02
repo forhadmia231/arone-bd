@@ -1,0 +1,3 @@
+import {prisma} from '@/lib/prisma';import {adminUser,sameOrigin} from '@/lib/auth';import {json,readJson,errorMessage} from '@/lib/http';import {parseProduct} from '@/lib/admin-product';
+export async function GET(){if(!await adminUser())return json({error:'Forbidden'},403);const products=await prisma.product.findMany({include:{category:{select:{name:true}}},orderBy:{createdAt:'desc'},take:500});return json({products});}
+export async function POST(req){if(!sameOrigin(req)||!await adminUser())return json({error:'Forbidden'},403);const parsed=parseProduct(await readJson(req));if(parsed.error)return json({error:parsed.error},400);try{const product=await prisma.product.create({data:parsed.data});return json({product},201)}catch(e){return json({error:errorMessage(e)},400)}}

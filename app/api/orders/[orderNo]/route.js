@@ -1,0 +1,2 @@
+import {prisma} from '@/lib/prisma';import {sessionUser} from '@/lib/auth';import {json} from '@/lib/http';
+export async function GET(req,{params}){const user=await sessionUser();if(!user)return json({error:'Please login'},401);const {orderNo}=await params;const order=await prisma.order.findFirst({where:{orderNo,userId:user.id},include:{items:true}});return order?json({order}):json({error:'Order not found'},404);}

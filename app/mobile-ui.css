@@ -1,0 +1,908 @@
+
+/* ==================================================
+   ARONE BD - COMPLETE MOBILE UI
+   Categories, Wishlist, Navigation & Homepage
+================================================== */
+
+
+/* ==================================================
+   01. CATEGORY SECTION - DEFAULT
+================================================== */
+
+.arone-mobile-category-section {
+  display: none;
+}
+
+.arone-mobile-categories {
+  display: none;
+}
+
+.arone-mobile-categories.is-full-page {
+  display: block;
+  padding: 30px 0 45px;
+  background: #ffffff;
+}
+
+.arone-categories-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.arone-categories-heading h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: #205337;
+}
+
+.arone-categories-heading > a {
+  font-size: 12px;
+  font-weight: 700;
+  color: #205337;
+  text-decoration: none;
+}
+
+
+/* ==================================================
+   02. HORIZONTAL CATEGORY SLIDER
+================================================== */
+
+.arone-category-scroll {
+  display: flex;
+  gap: 14px;
+
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+
+  padding: 4px 0 13px;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.arone-category-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.arone-category-item {
+  flex: 0 0 90px;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 7px;
+
+  text-align: center;
+  color: #25382b;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+
+  text-decoration: none;
+  scroll-snap-align: start;
+}
+
+.arone-category-item > span:last-child {
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  overflow-wrap: anywhere;
+
+  min-height: 32px;
+}
+
+
+/* Category Circular Image */
+
+.arone-category-picture {
+  width: 76px;
+  height: 76px;
+
+  display: grid;
+  place-items: center;
+
+  background: #f7faf4;
+
+  border: 2px solid #dce9d8;
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  box-shadow: 0 3px 8px rgba(23, 62, 41, 0.06);
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.arone-category-picture img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+}
+
+.arone-category-item:hover .arone-category-picture,
+.arone-category-item:focus-visible .arone-category-picture {
+  border-color: #205337;
+  transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   03. FULL CATEGORY PAGE
+================================================== */
+
+.arone-mobile-categories.is-full-page
+.arone-category-scroll {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(100px, 1fr));
+
+  gap: 24px 12px;
+
+  overflow: visible;
+}
+
+.arone-mobile-categories.is-full-page
+.arone-category-item {
+  width: 100%;
+  flex-basis: auto;
+}
+
+.arone-mobile-categories.is-full-page
+.arone-category-picture {
+  width: 88px;
+  height: 88px;
+}
+
+
+/* ==================================================
+   04. WISHLIST BUTTON
+================================================== */
+
+.product-card {
+  position: relative;
+}
+
+.arone-wishlist-toggle {
+  position: absolute;
+
+  z-index: 3;
+  top: 10px;
+  right: 10px;
+
+  width: 36px;
+  height: 36px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #e1e8df;
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #304838;
+
+  cursor: pointer;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.arone-wishlist-toggle svg {
+  width: 19px;
+  height: 19px;
+}
+
+.arone-wishlist-toggle:hover {
+  transform: scale(1.07);
+}
+
+.arone-wishlist-toggle.is-saved {
+  color: #d82c58;
+  background: #fff0f4;
+  border-color: #f6c5d1;
+}
+
+.arone-wishlist-toggle:focus-visible {
+  outline: 2px solid #205337;
+  outline-offset: 3px;
+}
+
+
+/* ==================================================
+   05. EMPTY WISHLIST
+================================================== */
+
+.arone-mobile-empty {
+  border: 1px solid #e0e7db;
+  border-radius: 13px;
+
+  text-align: center;
+
+  padding: 45px 15px;
+
+  background: #ffffff;
+}
+
+.arone-mobile-empty > span {
+  display: block;
+
+  font-size: 48px;
+  color: #d82c58;
+}
+
+.arone-mobile-empty h2 {
+  margin: 7px 0;
+}
+
+.arone-mobile-empty p {
+  color: #66736b;
+}
+
+.arone-mobile-empty .btn {
+  display: inline-flex;
+  margin-top: 10px;
+}
+
+
+/* ==================================================
+   06. SEARCH PAGE
+================================================== */
+
+.arone-mobile-search-form {
+  max-width: 680px;
+  margin-top: 25px;
+}
+
+.arone-mobile-search-form label {
+  display: block;
+
+  margin-bottom: 9px;
+
+  font-weight: 700;
+}
+
+.arone-mobile-search-form > div {
+  display: flex;
+  gap: 9px;
+}
+
+.arone-mobile-search-form input {
+  flex: 1;
+  min-width: 0;
+
+  background: #ffffff;
+
+  border: 1px solid #c9d4c6;
+  border-radius: 7px;
+
+  padding: 12px;
+}
+
+
+/* ==================================================
+   07. DESKTOP VISIBILITY
+================================================== */
+
+.arone-bottom-nav {
+  display: none;
+}
+
+.arone-mobile-banner {
+  display: none;
+}
+
+.mobile-product-title {
+  display: none;
+}
+
+.desktop-product-title {
+  display: inline;
+}
+
+@media (min-width: 781px) {
+
+  .site-header .header-search {
+    display: flex;
+  }
+
+}
+
+
+/* ==================================================
+   08. MOBILE RESPONSIVE LAYOUT
+================================================== */
+
+@media screen and (max-width: 780px) {
+
+  /* Hide header search on mobile */
+
+  .site-header .header-main .header-search {
+    display: none !important;
+  }
+
+
+  /* =====================================
+     HIDE OLD DESKTOP HERO
+  ===================================== */
+
+  .arone-desktop-hero {
+    display: none !important;
+  }
+
+  .arone-desktop-features {
+    display: none !important;
+  }
+
+  .arone-desktop-promo {
+    display: none !important;
+  }
+
+
+  /* =====================================
+     MOBILE JEWELLERY BANNER
+  ===================================== */
+
+  .arone-mobile-banner {
+    display: block !important;
+
+    width: calc(100% - 20px);
+
+    margin: 10px auto 14px;
+    padding: 0;
+
+    background: #f8faf6;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+  }
+
+  .arone-mobile-banner a {
+    display: block;
+    width: 100%;
+  }
+
+  .arone-mobile-banner img,
+  .arone-mobile-banner-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+  }
+
+
+  /* =====================================
+     MOBILE HOMEPAGE CATEGORIES
+  ===================================== */
+
+  .arone-mobile-category-section {
+    display: block !important;
+
+    width: 100%;
+
+    margin: 0 0 12px;
+  }
+
+  .arone-mobile-categories {
+    display: block;
+
+    padding: 13px 0;
+
+    background: #ffffff;
+  }
+
+  .arone-categories-heading {
+    margin-bottom: 12px;
+  }
+
+  .arone-categories-heading h2 {
+    font-size: 17px;
+    font-weight: 800;
+  }
+
+  .arone-category-scroll {
+    gap: 12px;
+  }
+
+  .arone-category-item {
+    flex-basis: 84px;
+    font-size: 11px;
+  }
+
+  .arone-category-picture {
+    width: 72px;
+    height: 72px;
+  }
+
+
+  /* =====================================
+     HOMEPAGE FEATURED PRODUCTS
+  ===================================== */
+
+  .arone-home-products {
+    padding-top: 8px;
+    padding-bottom: 20px;
+  }
+
+  .arone-home-products .section-heading {
+    margin-bottom: 12px;
+    gap: 10px;
+  }
+
+  .arone-home-products .section-heading h2 {
+    font-size: 18px;
+    font-weight: 800;
+
+    line-height: 1.4;
+    color: #205337;
+  }
+
+  .arone-home-products .section-heading p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .arone-home-products .text-link {
+    flex-shrink: 0;
+    font-size: 11px;
+  }
+
+  .desktop-product-title {
+    display: none !important;
+  }
+
+  .mobile-product-title {
+    display: inline !important;
+  }
+
+
+  /* =====================================
+     TWO COLUMN PRODUCT GRID
+  ===================================== */
+
+  .arone-home-products .product-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+  .arone-home-products .product-card {
+    width: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px solid #e4e9df;
+    border-radius: 9px;
+  }
+
+  .arone-home-products .product-image {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    background: #fafbf8;
+  }
+
+  .arone-home-products .product-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+  }
+
+
+  /* =====================================
+     PRODUCT INFORMATION
+  ===================================== */
+
+  .arone-home-products .card-content {
+    padding: 9px 7px;
+  }
+
+  .arone-home-products .eyebrow {
+    font-size: 9px;
+  }
+
+  .arone-home-products .product-title {
+    display: -webkit-box;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+
+    font-size: 12px;
+    line-height: 1.45;
+
+    min-height: 35px;
+  }
+
+  .arone-home-products .price-row {
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin: 7px 0;
+  }
+
+  .arone-home-products .price-row strong {
+    font-size: 14px;
+  }
+
+  .arone-home-products .price-row del {
+    font-size: 11px;
+  }
+
+
+  /* =====================================
+     BENGALI PRODUCT BUTTONS
+  ===================================== */
+
+  .arone-home-products .arone-product-actions {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 6px;
+  }
+
+  .arone-home-products .arone-product-actions button {
+    width: 100%;
+
+    min-height: 37px;
+
+    padding: 7px 4px;
+
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.3;
+
+    border-radius: 20px;
+  }
+
+
+  /* =====================================
+     PRODUCT WISHLIST
+  ===================================== */
+
+  .arone-home-products .arone-wishlist-toggle {
+    top: 7px;
+    right: 7px;
+
+    width: 32px;
+    height: 32px;
+  }
+
+  .arone-home-products .arone-wishlist-toggle svg {
+    width: 17px;
+    height: 17px;
+  }
+
+
+  /* =====================================
+     FIXED MOBILE BOTTOM NAVIGATION
+  ===================================== */
+
+  body:has(.arone-bottom-nav) {
+    padding-bottom:
+      calc(75px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .arone-bottom-nav {
+    position: fixed;
+
+    z-index: 1500;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(5, minmax(0, 1fr));
+
+    min-height:
+      calc(67px + env(safe-area-inset-bottom, 0px));
+
+    padding:
+      5px
+      max(5px, env(safe-area-inset-left, 0px))
+      calc(5px + env(safe-area-inset-bottom, 0px))
+      max(5px, env(safe-area-inset-right, 0px));
+
+    background: #ffffff;
+
+    border-top: 1px solid #d8e3d6;
+
+    box-shadow:
+      0 -5px 20px rgba(9, 39, 14, 0.08);
+  }
+
+  .arone-bottom-link {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 3px;
+
+    min-width: 0;
+
+    padding: 4px 1px;
+
+    border-radius: 9px;
+
+    color: #24382b;
+
+    text-align: center;
+    text-decoration: none;
+
+    font: 600 10px/1.2 Arial, sans-serif;
+
+    white-space: nowrap;
+  }
+
+  .arone-bottom-icon {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    min-height: 25px;
+  }
+
+  .arone-bottom-link.is-active {
+    color: #1f663a;
+    background: #eef8eb;
+  }
+
+  .arone-bottom-link.is-active
+  .arone-bottom-icon {
+    transform: translateY(-1px);
+  }
+
+  .arone-bottom-link:focus-visible {
+    outline: 2px solid #226438;
+    outline-offset: -2px;
+  }
+
+  .arone-bottom-count {
+    position: absolute;
+
+    top: -7px;
+    right: -9px;
+
+    display: grid;
+    place-items: center;
+
+    width: 16px;
+    height: 16px;
+
+    background: #e33c4e;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 9px;
+  }
+
+
+  /* =====================================
+     SEARCH AND WISHLIST PAGE
+  ===================================== */
+
+  .arone-mobile-route {
+    min-height: 55vh;
+  }
+
+  .arone-mobile-search-form > div {
+    gap: 6px;
+  }
+
+  .arone-mobile-search-form button {
+    padding: 10px;
+  }
+
+
+  /* =====================================
+     FLOATING SUPPORT POSITION
+  ===================================== */
+
+  .arone-floating-support {
+    right: 10px !important;
+
+    bottom:
+      calc(87px + env(safe-area-inset-bottom, 0px))
+      !important;
+
+    gap: 8px;
+  }
+
+  .arone-float-btn {
+    width: 43px;
+    height: 43px;
+  }
+
+  .arone-float-btn svg {
+    width: 21px;
+    height: 21px;
+  }
+
+
+  /* Ads Consent */
+
+  .ads-consent {
+    bottom:
+      calc(80px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .ads-preferences {
+    bottom:
+      calc(77px + env(safe-area-inset-bottom, 0px));
+  }
+
+}
+
+
+/* ==================================================
+   09. SMALL MOBILE - 380PX AND BELOW
+================================================== */
+
+@media screen and (max-width: 380px) {
+
+  .arone-category-item {
+    flex-basis: 82px;
+  }
+
+  .arone-category-picture {
+    width: 69px;
+    height: 69px;
+  }
+
+  .arone-bottom-link {
+    font-size: 9px;
+  }
+
+  .arone-home-products .product-grid {
+    gap: 7px;
+  }
+
+  .arone-home-products .card-content {
+    padding: 7px 5px;
+  }
+
+  .arone-home-products .product-title {
+    font-size: 11px;
+  }
+
+  .arone-home-products
+  .arone-product-actions button {
+    font-size: 10px;
+  }
+
+}
+
+
+/* ==================================================
+   10. ACCESSIBILITY
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .arone-category-picture,
+  .arone-wishlist-toggle,
+  .arone-bottom-icon {
+    transition: none;
+  }
+
+}
+/* ====================================
+   ARONE BD - COMPACT HOMEPAGE
+==================================== */
+
+@media (max-width: 780px) {
+
+  /* Homepage Product Heading */
+
+  .arone-home-products .section-heading {
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+
+  .arone-home-products .section-heading h2 {
+    font-size: 16px;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .arone-home-products .section-heading p {
+    display: none;
+  }
+
+  .arone-home-products .text-link {
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  /* Smaller Product Card */
+
+  .arone-home-products .card-content {
+    padding: 7px 6px;
+  }
+
+  .arone-home-products .product-title {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .arone-home-products .eyebrow {
+    font-size: 8px;
+  }
+
+  .arone-home-products .price-row strong {
+    font-size: 13px;
+  }
+
+  .arone-home-products .price-row del {
+    font-size: 10px;
+  }
+
+  /* Order and Cart Buttons */
+
+  .arone-home-products .arone-product-actions {
+    gap: 5px;
+  }
+
+  .arone-home-products .arone-product-actions button {
+    width: 100%;
+    min-height: 34px;
+    padding: 6px 4px;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 18px;
+  }
+
+}
+
+
+
+
+

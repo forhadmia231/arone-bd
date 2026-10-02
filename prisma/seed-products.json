@@ -1,0 +1,202 @@
+[
+  {
+    "name": "কাস্ট আয়রন ১১ ইঞ্চি কান তাওয়া",
+    "slug": "cast-iron-01",
+    "price": 1000,
+    "compareAtPrice": 1300,
+    "imageUrl": "/products/tawa.svg",
+    "stock": 15,
+    "featured": true,
+    "description": "কাস্ট আয়রন ১১ ইঞ্চি কান তাওয়া। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ১০ ইঞ্চি কান তাওয়া",
+    "slug": "cast-iron-02",
+    "price": 800,
+    "compareAtPrice": 1000,
+    "imageUrl": "/products/tawa.svg",
+    "stock": 15,
+    "featured": true,
+    "description": "কাস্ট আয়রন ১০ ইঞ্চি কান তাওয়া। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "Arone Bd কাস্ট আয়রন ১০ ইঞ্চি খোলা জালি তাওয়া",
+    "slug": "cast-iron-03",
+    "price": 900,
+    "compareAtPrice": 1200,
+    "imageUrl": "/products/tawa.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "Arone Bd কাস্ট আয়রন ১০ ইঞ্চি খোলা জালি তাওয়া। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ৯ ইঞ্চি খোলা জালি তাওয়া",
+    "slug": "cast-iron-04",
+    "price": 600,
+    "compareAtPrice": 800,
+    "imageUrl": "/products/tawa.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন ৯ ইঞ্চি খোলা জালি তাওয়া। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ১২.৫ ইঞ্চি মাল্টিপ্যান (অয়েল নজেল)",
+    "slug": "cast-iron-05",
+    "price": 1500,
+    "compareAtPrice": 1900,
+    "imageUrl": "/products/multipan.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন ১২.৫ ইঞ্চি মাল্টিপ্যান (অয়েল নজেল)। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ১২ ইঞ্চি মাল্টিপ্যান",
+    "slug": "cast-iron-06",
+    "price": 1200,
+    "compareAtPrice": 1500,
+    "imageUrl": "/products/multipan.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন ১২ ইঞ্চি মাল্টিপ্যান। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ১০ ইঞ্চি মাল্টিপ্যান (অয়েল নজেল)",
+    "slug": "cast-iron-07",
+    "price": 1000,
+    "compareAtPrice": 1300,
+    "imageUrl": "/products/multipan.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন ১০ ইঞ্চি মাল্টিপ্যান (অয়েল নজেল)। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ১০ ইঞ্চি মাল্টিপ্যান",
+    "slug": "cast-iron-08",
+    "price": 1000,
+    "compareAtPrice": 1300,
+    "imageUrl": "/products/multipan.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন ১০ ইঞ্চি মাল্টিপ্যান। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ৯.৫ ইঞ্চি মাল্টিপ্যান (অয়েল নজেল)",
+    "slug": "cast-iron-09",
+    "price": 900,
+    "compareAtPrice": 1200,
+    "imageUrl": "/products/multipan.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন ৯.৫ ইঞ্চি মাল্টিপ্যান (অয়েল নজেল)। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ৯.৫ ইঞ্চি মাল্টিপ্যান",
+    "slug": "cast-iron-10",
+    "price": 900,
+    "compareAtPrice": 1200,
+    "imageUrl": "/products/multipan.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন ৯.৫ ইঞ্চি মাল্টিপ্যান। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ১০ ইঞ্চি নিউ ফ্রাইপ্যান",
+    "slug": "cast-iron-11",
+    "price": 900,
+    "compareAtPrice": 1200,
+    "imageUrl": "/products/frypan.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন ১০ ইঞ্চি নিউ ফ্রাইপ্যান। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ১০ ইঞ্চি ফ্রাইপ্যান",
+    "slug": "cast-iron-12",
+    "price": 800,
+    "compareAtPrice": 1000,
+    "imageUrl": "/products/frypan.svg",
+    "stock": 15,
+    "featured": true,
+    "description": "কাস্ট আয়রন ১০ ইঞ্চি ফ্রাইপ্যান। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ১২ ইঞ্চি কড়াই | Cast Iron Karai",
+    "slug": "cast-iron-13",
+    "price": 1500,
+    "compareAtPrice": 1800,
+    "imageUrl": "/products/kadai.svg",
+    "stock": 15,
+    "featured": true,
+    "description": "কাস্ট আয়রন ১২ ইঞ্চি কড়াই | Cast Iron Karai। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ১১ ইঞ্চি কড়াই | ভারী ও মজবুত",
+    "slug": "cast-iron-14",
+    "price": 1200,
+    "compareAtPrice": 1500,
+    "imageUrl": "/products/kadai.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন ১১ ইঞ্চি কড়াই | ভারী ও মজবুত। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন ১০ ইঞ্চি স্পেশাল কড়াই",
+    "slug": "cast-iron-15",
+    "price": 1100,
+    "compareAtPrice": 1200,
+    "imageUrl": "/products/kadai.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন ১০ ইঞ্চি স্পেশাল কড়াই। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন কড়াই – ১০ ইঞ্চি",
+    "slug": "cast-iron-16",
+    "price": 1000,
+    "compareAtPrice": 1200,
+    "imageUrl": "/products/kadai.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন কড়াই – ১০ ইঞ্চি। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন মিনি কড়াই – ৭ ইঞ্চি",
+    "slug": "cast-iron-17",
+    "price": 400,
+    "compareAtPrice": 500,
+    "imageUrl": "/products/kadai.svg",
+    "stock": 15,
+    "featured": true,
+    "description": "কাস্ট আয়রন মিনি কড়াই – ৭ ইঞ্চি। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন কড়াই – ৮ ইঞ্চি",
+    "slug": "cast-iron-18",
+    "price": 700,
+    "compareAtPrice": 800,
+    "imageUrl": "/products/kadai.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন কড়াই – ৮ ইঞ্চি। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন কড়াই ৯.৫ ইঞ্চি",
+    "slug": "cast-iron-19",
+    "price": 900,
+    "compareAtPrice": 1000,
+    "imageUrl": "/products/kadai.svg",
+    "stock": 15,
+    "featured": true,
+    "description": "কাস্ট আয়রন কড়াই ৯.৫ ইঞ্চি। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  },
+  {
+    "name": "কাস্ট আয়রন কড়াই – ৭.৫ ইঞ্চি",
+    "slug": "cast-iron-20",
+    "price": 600,
+    "compareAtPrice": 700,
+    "imageUrl": "/products/kadai.svg",
+    "stock": 15,
+    "featured": false,
+    "description": "কাস্ট আয়রন কড়াই – ৭.৫ ইঞ্চি। টেকসই কাস্ট আয়রন কুকওয়্যার। ব্যবহারের পর শুকিয়ে হালকা তেল দিয়ে সংরক্ষণ করুন।"
+  }
+]

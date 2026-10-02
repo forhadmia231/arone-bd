@@ -1,0 +1,16 @@
+To show Pages in your existing Admin sidebar/menu, open:
+
+app/admin/layout.js
+
+Inside the existing navigation links, add ONE link:
+
+<Link href="/admin/pages">Pages</Link>
+
+If your admin layout uses a nav array instead, add an item equivalent to:
+
+{ href: "/admin/pages", label: "Pages" }
+
+The installer intentionally does NOT auto-edit app/admin/layout.js because your current admin layout has already been customized and an automatic regex patch could break it.
+
+You can use the page builder immediately even before adding the menu link by opening:
+http://localhost:3000/admin/pages

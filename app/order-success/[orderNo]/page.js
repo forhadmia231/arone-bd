@@ -1,0 +1,1 @@
+import {Suspense} from 'react';import OrderSuccess from '@/components/OrderSuccess';export const metadata={title:'অর্ডার সফল'};export default function Page(){return <Suspense fallback={<>লোড হচ্ছে...</>}><OrderSuccess/></Suspense>}
