@@ -64,10 +64,37 @@ const adminLinks = [
   },
 
   {
+    href: '/admin/navigation',
+    icon: '☰',
+    label: 'Navigation',
+  },
+  {
+    href: '/admin/bundles',
+    icon: 'â–¥',
+    label: 'Bundles',
+  },
+  {
+    href: '/admin/coupons',
+    icon: '%',
+    label: 'Coupons',
+  },
+  {
+    href: '/admin/reviews',
+    icon: 'â˜…',
+    label: 'Reviews',
+  },
+  {
+    href: '/admin/promotions',
+    icon: 'â—‰',
+    label: 'Promotions',
+  },
+  {
     href: '/admin/settings',
     icon: '⚙',
     label: 'Settings',
   },
+  { href: '/admin/abandoned-checkouts', icon: 'â†º', label: 'Abandoned Checkouts' },
+  { href: '/admin/notifications', icon: 'âœ‰', label: 'Notifications' },
 ];
 
 function staffLinks(user) {

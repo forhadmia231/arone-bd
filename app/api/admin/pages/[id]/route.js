@@ -1,6 +1,7 @@
 import { prisma } from '@/lib/prisma';
 import { adminUser, sameOrigin } from '@/lib/auth';
 import { normalizePageInput } from '@/lib/page-builder';
+import { savePageRevision } from '@/lib/page-revisions';
 
 export const dynamic = 'force-dynamic';
 
@@ -27,7 +28,8 @@ export async function PUT(request, { params }) {
       return Response.json({ error: 'Invalid request origin' }, { status: 403 });
     }
 
-    if (!(await adminUser())) {
+    const user = await adminUser();
+    if (!user) {
       return Response.json({ error: 'Forbidden' }, { status: 403 });
     }
 
@@ -42,9 +44,18 @@ export async function PUT(request, { params }) {
       where: { slug: data.slug, NOT: { id } },
       select: { id: true },
     });
+
     if (duplicate) {
-      return Response.json({ error: 'This page URL slug is already in use.' }, { status: 409 });
+      return Response.json(
+        { error: 'This page URL slug is already in use.' },
+        { status: 409 }
+      );
     }
+
+    await savePageRevision(prisma, current, {
+      createdById: user.id,
+      note: data.status === 'PUBLISHED' ? 'Before publish/update' : 'Before draft save',
+    });
 
     const page = await prisma.page.update({
       where: { id },
@@ -60,7 +71,10 @@ export async function PUT(request, { params }) {
     return Response.json({ page });
   } catch (error) {
     console.error('Admin page PUT error:', error);
-    return Response.json({ error: error?.message || 'Could not update page.' }, { status: 400 });
+    return Response.json(
+      { error: error?.message || 'Could not update page.' },
+      { status: 400 }
+    );
   }
 }
 
@@ -75,7 +89,10 @@ export async function DELETE(request, { params }) {
     }
 
     const { id } = await params;
+
+    await prisma.pageRevision.deleteMany({ where: { pageId: id } });
     await prisma.page.delete({ where: { id } });
+
     return Response.json({ ok: true });
   } catch (error) {
     console.error('Admin page DELETE error:', error);

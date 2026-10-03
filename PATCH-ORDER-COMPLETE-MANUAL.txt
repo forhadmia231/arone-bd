@@ -1,0 +1,11 @@
+OPTIONAL: mark an abandoned checkout as recovered immediately after an order is successfully created.
+
+In the browser-side code that runs after a successful order, add ONE of these:
+
+window.dispatchEvent(new Event("arone-order-complete"));
+
+or
+
+window.dispatchEvent(new Event("paaikar-order-complete"));
+
+The tracker also tries to mark recovery automatically on URLs containing thank/success/order-confirm/order-success.

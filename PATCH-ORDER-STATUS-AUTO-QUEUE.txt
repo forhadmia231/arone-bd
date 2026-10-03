@@ -1,0 +1,39 @@
+OPTIONAL: AUTOMATIC ORDER STATUS NOTIFICATION QUEUE
+
+Phase 16 works without this patch: Admin > Notifications can prepare a message by Order Number.
+
+If you later want an order status API to automatically create a QUEUED notification whenever status changes,
+add this import to that server route:
+
+import { queueOrderNotification } from '@/lib/customer-notifications';
+
+After the order status update succeeds, fetch/include these fields:
+- id
+- orderNo
+- customerName
+- phone
+- total
+- status
+- shipment { courierName, consignmentId, trackingUrl, status }
+
+Then map your status to a template key:
+
+const eventKey = {
+  PENDING: 'ORDER_PENDING',
+  CONFIRMED: 'ORDER_CONFIRMED',
+  SHIPPED: 'ORDER_SHIPPED',
+  DELIVERED: 'ORDER_DELIVERED',
+  CANCELLED: 'ORDER_CANCELLED',
+}[order.status];
+
+if (eventKey) {
+  await queueOrderNotification(prisma, {
+    order,
+    eventKey,
+    storeName: 'ARONE BD',
+  });
+}
+
+IMPORTANT:
+This queues a message only. It does NOT silently send through a paid WhatsApp/SMS provider.
+Actual provider integration should be added later using your own approved provider credentials.

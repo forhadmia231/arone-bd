@@ -1,6 +1,7 @@
 'use client';
 
 import styles from './PageBuilder.module.css';
+import PageAdvancedBlocks from './PageAdvancedBlocks';
 
 function clampNumber(value, fallback, min, max) {
   const number = Number(value);
@@ -134,6 +135,49 @@ function PreviewBlock({ block, productMap }) {
                 </article>
               ))
             )}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (block.type === 'orderForm') {
+    const selected = (block.productIds || [])
+      .map((id) => productMap.get(id))
+      .filter(Boolean);
+
+    return (
+      <section
+        className={styles.previewSection}
+        style={sectionStyle(block, { backgroundColor: '#f7faf5' })}
+      >
+        <div className={styles.previewInner}>
+          <h2>{block.heading || 'অর্ডার করুন'}</h2>
+          {block.text && <p>{block.text}</p>}
+
+          <div className={styles.previewProducts}>
+            {selected.slice(0, 4).map((product) => (
+              <article className={styles.previewProductCard} key={product.id}>
+                <div className={styles.previewProductImage}>
+                  {product.imageUrl ? <img src={product.imageUrl} alt="" /> : null}
+                </div>
+                <div className={styles.previewProductBody}>
+                  <strong>{product.name}</strong>
+                  <span>৳{product.price}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className={styles.previewLeadForm}>
+            <span>Name</span>
+            <span>Phone</span>
+            <span className={styles.previewFormWide}>Address</span>
+            <span>Delivery Area</span>
+            {block.showEmail === true && <span>Email</span>}
+            <b style={buttonStyle(block)}>
+              {block.buttonText || 'অর্ডার কনফার্ম করুন'}
+            </b>
           </div>
         </div>
       </section>

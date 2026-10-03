@@ -115,9 +115,9 @@ export default function AdminPages() {
     <div className={styles.adminPage}>
       <div className={styles.adminHeading}>
         <div>
-          <span className={styles.eyebrow}>CONTENT · PHASE 5</span>
+          <span className={styles.eyebrow}>CONTENT · PHASE 6</span>
           <h1>Pages & Landing Pages</h1>
-          <p>Build pages, manage media, leads, analytics, publishing and conversion tools.</p>
+          <p>Build pages, manage media, leads, analytics, publishing, conversion tools and version history.</p>
         </div>
 
         <div className={styles.actionRow}>
@@ -221,6 +221,10 @@ export default function AdminPages() {
 
                         <Link href={`/admin/pages/${page.id}/marketing`} className={styles.smallButton}>
                           Marketing
+                        </Link>
+
+                        <Link href={`/admin/pages/${page.id}/history`} className={styles.smallButton}>
+                          History
                         </Link>
 
                         <Link

@@ -12,6 +12,7 @@ export default function SiteHeader() {
 
   const [user, setUser] = useState(null);
   const [menu, setMenu] = useState(false);
+  const [navigationItems, setNavigationItems] = useState([]);
 
   // FRONTEND THEME / LOGO
   const [siteTheme, setSiteTheme] = useState({
@@ -135,6 +136,33 @@ export default function SiteHeader() {
     setMenu(false);
   }, [pathname]);
 
+  // Load Header Menu from Admin > Navigation.
+  // Existing hard-coded menu remains as a fallback.
+  useEffect(() => {
+    let active = true;
+
+    fetch("/api/navigation?location=HEADER", {
+      cache: "no-store",
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!active) return;
+
+        setNavigationItems(
+          (data?.items || []).map((item) => ({
+            href: item.href,
+            en: item.labelEn || item.labelBn,
+            bn: item.labelBn || item.labelEn,
+          }))
+        );
+      })
+      .catch(() => {});
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
   const closeMenu = () => {
     setMenu(false);
   };
@@ -143,7 +171,7 @@ export default function SiteHeader() {
     user?.name?.trim()?.split(/\s+/)[0] ||
     (english ? "Account" : "অ্যাকাউন্ট");
 
-  const menuItems = [
+  const fallbackMenuItems = [
     {
       href: "/",
       en: "Home",
@@ -170,6 +198,8 @@ export default function SiteHeader() {
       bn: "আমার অ্যাকাউন্ট",
     },
   ];
+
+  const menuItems = navigationItems.length > 0 ? navigationItems : fallbackMenuItems;
 
   return (
     <>
@@ -253,7 +283,7 @@ export default function SiteHeader() {
           ================================== */}
 
           <form
-            action="/shop"
+            action="/search"
             method="GET"
             className="header-search"
             role="search"

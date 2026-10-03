@@ -1,4 +1,6 @@
-﻿import ThemeLoader from "@/components/ThemeLoader";
+import AbandonedCheckoutTracker from "@/components/AbandonedCheckoutTracker";
+import PromotionLayer from "@/components/PromotionLayer";
+import ThemeLoader from "@/components/ThemeLoader";
 
 
 import "./globals.css";
@@ -31,6 +33,7 @@ export default function RootLayout({ children }) {
     <html lang="bn">
 
       <body suppressHydrationWarning>
+        <AbandonedCheckoutTracker />
         <ThemeLoader />
 
         <CartProvider>
@@ -49,6 +52,7 @@ export default function RootLayout({ children }) {
 
         </CartProvider>
 
+        <PromotionLayer />
       </body>
 
     </html>

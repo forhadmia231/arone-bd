@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { slugifyPage, publicPageHref } from '@/lib/page-builder';
 import { PAGE_TEMPLATES, applyPageTemplate } from '@/lib/page-templates';
 import PageBuilderLivePreview from './PageBuilderLivePreview';
+import AdvancedBlockEditor from './AdvancedBlockEditor';
 import styles from './PageBuilder.module.css';
 
 const MAX_IMAGE_BYTES = 450 * 1024;
@@ -33,6 +34,19 @@ const BLOCK_LABELS = {
   cta: 'Call To Action',
   faq: 'FAQ',
   form: 'Lead Form',
+  orderForm: 'Direct Order / COD',
+  bundleOffer: 'Bundle / Combo Offer',
+  countdown: 'Countdown Offer',
+  trust: 'Trust Badges',
+  testimonials: 'Testimonials',
+  liveReviews: 'Live Customer Reviews',
+  video: 'Video',
+  gallery: 'Image Gallery',
+  steps: 'How It Works / Steps',
+  comparison: 'Comparison Table',
+  coupon: 'Coupon / Promo Code',
+  beforeAfter: 'Before & After',
+  specs: 'Specifications Table',
 };
 
 function blockTemplate(type) {
@@ -146,6 +160,198 @@ function blockTemplate(type) {
       },
       buttonColor: '#235B37',
       buttonTextColor: '#FFFFFF',
+    };
+  }
+
+
+  if (type === 'orderForm') {
+    return {
+      ...base,
+      backgroundColor: '#F7FAF5',
+      heading: 'অর্ডার করুন',
+      text: 'পছন্দের পণ্য নির্বাচন করে আপনার তথ্য দিন। পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন।',
+      productIds: [],
+      insideDhakaFee: 70,
+      outsideDhakaFee: 130,
+      allowQuantity: true,
+      showEmail: false,
+      showNote: true,
+      buttonText: 'অর্ডার কনফার্ম করুন',
+      successMessage: 'ধন্যবাদ। আপনার অর্ডারটি গ্রহণ করা হয়েছে।',
+      buttonColor: '#235B37',
+      buttonTextColor: '#FFFFFF',
+    };
+  }
+
+
+  if (type === 'bundleOffer') {
+    return {
+      ...base,
+      backgroundColor: '#F7FAF5',
+      heading: '',
+      text: '',
+      bundleSlug: '',
+      badgeText: '',
+      showOrderForm: true,
+      buttonText: 'Order Combo',
+      buttonColor: '#235B37',
+      buttonTextColor: '#FFFFFF',
+    };
+  }
+  if (type === 'countdown') {
+    return {
+      ...base,
+      backgroundColor: '#173F29',
+      textColor: '#FFFFFF',
+      heading: 'Limited Time Offer',
+      text: 'Order before the countdown ends.',
+      endsAt: '',
+      expiredText: 'This offer has ended.',
+      showDays: true,
+      buttonText: 'Order Now',
+      buttonUrl: '#order',
+      buttonColor: '#F3C65B',
+      buttonTextColor: '#2E281C',
+    };
+  }
+
+  if (type === 'trust') {
+    return {
+      ...base,
+      backgroundColor: '#F7FAF5',
+      heading: 'Why customers choose us',
+      columns: 3,
+      items: [
+        { icon: '✓', title: 'Cash on Delivery', text: 'Pay after receiving your product.' },
+        { icon: '↗', title: 'Nationwide Delivery', text: 'Delivery service across Bangladesh.' },
+        { icon: '★', title: 'Selected Quality', text: 'Products are selected with care.' },
+      ],
+    };
+  }
+
+  if (type === 'testimonials') {
+    return {
+      ...base,
+      backgroundColor: '#FFFFFF',
+      heading: 'Customer Reviews',
+      columns: 3,
+      items: [
+        { name: 'Customer', rating: 5, text: 'Write a genuine customer review here.' },
+        { name: 'Customer', rating: 5, text: 'Add another customer experience here.' },
+        { name: 'Customer', rating: 5, text: 'Add a third review or remove this card.' },
+      ],
+    };
+  }
+
+
+  if (type === 'liveReviews') {
+    return {
+      ...base,
+      backgroundColor: '#F7FAF5',
+      heading: 'Customer Reviews',
+      limit: 6,
+      minRating: 4,
+      featuredOnly: false,
+      columns: 3,
+      showImages: true,
+      showSource: true,
+      showSubmitLink: true,
+      submitLink: '/reviews',
+    };
+  }
+
+  if (type === 'video') {
+    return {
+      ...base,
+      heading: 'See the product in action',
+      text: 'Add a YouTube or Vimeo video to explain the product or offer.',
+      videoUrl: '',
+      width: 'wide',
+    };
+  }
+
+  if (type === 'gallery') {
+    return {
+      ...base,
+      heading: 'Product Gallery',
+      columns: 3,
+      imageFit: 'cover',
+      images: [
+        { id: `img_${Date.now()}_1`, url: '', alt: '' },
+        { id: `img_${Date.now()}_2`, url: '', alt: '' },
+        { id: `img_${Date.now()}_3`, url: '', alt: '' },
+      ],
+    };
+  }
+
+
+  if (type === 'steps') {
+    return {
+      ...base,
+      backgroundColor: '#F7FAF5',
+      heading: 'How it works',
+      columns: 3,
+      items: [
+        { title: 'Choose', text: 'Choose the product or offer you want.' },
+        { title: 'Order', text: 'Submit your details or complete checkout.' },
+        { title: 'Receive', text: 'Receive your order and enjoy your purchase.' },
+      ],
+    };
+  }
+
+  if (type === 'comparison') {
+    return {
+      ...base,
+      heading: 'Why choose Arone Bd?',
+      featureLabel: 'Feature',
+      ourLabel: 'Arone Bd',
+      otherLabel: 'Others',
+      highlightColor: '#EDF4E8',
+      rows: [
+        { feature: 'Clear product information', ours: '✓', others: 'Varies' },
+        { feature: 'Cash on Delivery', ours: '✓', others: 'Varies' },
+        { feature: 'Customer support', ours: '✓', others: 'Varies' },
+      ],
+    };
+  }
+
+  if (type === 'coupon') {
+    return {
+      ...base,
+      backgroundColor: '#FFF7E5',
+      heading: 'Special Offer Code',
+      text: 'Copy this code and use it when ordering.',
+      code: 'ARONE10',
+      buttonText: 'Copy Code',
+      copiedText: 'Copied!',
+      note: 'Edit the code and terms for your campaign.',
+      buttonColor: '#235B37',
+      buttonTextColor: '#FFFFFF',
+    };
+  }
+
+  if (type === 'beforeAfter') {
+    return {
+      ...base,
+      heading: 'Before & After',
+      text: 'Drag the slider to compare the two images.',
+      beforeImage: '',
+      afterImage: '',
+      beforeLabel: 'Before',
+      afterLabel: 'After',
+      startPosition: 50,
+    };
+  }
+
+  if (type === 'specs') {
+    return {
+      ...base,
+      heading: 'Product Specifications',
+      rows: [
+        { label: 'Material', value: 'Add material' },
+        { label: 'Size', value: 'Add size' },
+        { label: 'Weight', value: 'Add weight' },
+      ],
     };
   }
 
@@ -474,7 +680,7 @@ export default function AdminPageBuilder({ pageId = '' }) {
   if (loading) {
     return (
       <div className={styles.adminPage}>
-        Loading Page Builder Phase 4...
+        Loading Page Builder Phase 7...
       </div>
     );
   }
@@ -483,7 +689,7 @@ export default function AdminPageBuilder({ pageId = '' }) {
     <div className={styles.adminPage}>
       <div className={styles.adminHeading}>
         <div>
-          <span className={styles.eyebrow}>PAGE BUILDER · PHASE 4</span>
+          <span className={styles.eyebrow}>PAGE BUILDER · PHASE 9</span>
           <h1>{isEdit ? 'Edit Page' : 'Create New Page'}</h1>
           <p>
             Start from templates, build reusable campaigns and preview every device before publishing.
@@ -1207,6 +1413,166 @@ function BlockEditor({ block, index, updateBlock, products, media, setError }) {
     );
   }
 
+  if (block.type === 'orderForm') {
+    const selected = Array.isArray(block.productIds) ? block.productIds : [];
+    const selectedProducts = selected
+      .map((id) => products.find((product) => product.id === id))
+      .filter(Boolean);
+
+    return (
+      <div className={styles.editorStack}>
+        <div className={styles.formGrid}>
+          <label className={styles.full}>
+            Heading
+            <input
+              value={block.heading || ''}
+              onChange={(e) => field('heading', e.target.value)}
+            />
+          </label>
+
+          <label className={styles.full}>
+            Intro Text
+            <textarea
+              rows="3"
+              value={block.text || ''}
+              onChange={(e) => field('text', e.target.value)}
+            />
+          </label>
+
+          <label>
+            Inside Dhaka Delivery Fee (৳)
+            <input
+              type="number"
+              min="0"
+              max="10000"
+              value={Number(block.insideDhakaFee ?? 70)}
+              onChange={(e) => field('insideDhakaFee', Number(e.target.value))}
+            />
+          </label>
+
+          <label>
+            Outside Dhaka Delivery Fee (৳)
+            <input
+              type="number"
+              min="0"
+              max="10000"
+              value={Number(block.outsideDhakaFee ?? 130)}
+              onChange={(e) => field('outsideDhakaFee', Number(e.target.value))}
+            />
+          </label>
+
+          <label>
+            Order Button Text
+            <input
+              value={block.buttonText || ''}
+              onChange={(e) => field('buttonText', e.target.value)}
+            />
+          </label>
+
+          <label className={styles.full}>
+            Success Message
+            <input
+              value={block.successMessage || ''}
+              onChange={(e) => field('successMessage', e.target.value)}
+            />
+          </label>
+
+          <label className={styles.checkField}>
+            <input
+              type="checkbox"
+              checked={block.allowQuantity !== false}
+              onChange={(e) => field('allowQuantity', e.target.checked)}
+            />
+            Customer can change quantity
+          </label>
+
+          <label className={styles.checkField}>
+            <input
+              type="checkbox"
+              checked={block.showEmail === true}
+              onChange={(e) => field('showEmail', e.target.checked)}
+            />
+            Show Email field
+          </label>
+
+          <label className={styles.checkField}>
+            <input
+              type="checkbox"
+              checked={block.showNote !== false}
+              onChange={(e) => field('showNote', e.target.checked)}
+            />
+            Show Order Note
+          </label>
+        </div>
+
+        <div className={styles.productTools}>
+          <input
+            type="search"
+            value={productSearch}
+            onChange={(e) => setProductSearch(e.target.value)}
+            placeholder="Search products for direct order..."
+          />
+          <strong>{selected.length} / 8 selected</strong>
+        </div>
+
+        {selectedProducts.length > 0 && (
+          <div className={styles.selectedProducts}>
+            {selectedProducts.map((product) => (
+              <button
+                type="button"
+                key={product.id}
+                onClick={() =>
+                  field(
+                    'productIds',
+                    selected.filter((id) => id !== product.id)
+                  )
+                }
+                title="Remove product"
+              >
+                {product.name} ×
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className={styles.productPicker}>
+          {filteredProducts.map((product) => (
+            <label key={product.id} className={styles.productOption}>
+              <input
+                type="checkbox"
+                checked={selected.includes(product.id)}
+                onChange={(e) => {
+                  const next = e.target.checked
+                    ? [...selected, product.id]
+                    : selected.filter((id) => id !== product.id);
+
+                  field('productIds', next.slice(0, 8));
+                }}
+              />
+
+              {product.imageUrl ? (
+                <img src={product.imageUrl} alt="" />
+              ) : (
+                <span className={styles.productThumb} />
+              )}
+
+              <span>
+                {product.name}
+                <small>
+                  ৳{product.price}
+                  {product.category?.name ? ` · ${product.category.name}` : ''}
+                  {typeof product.stock === 'number' ? ` · Stock ${product.stock}` : ''}
+                </small>
+              </span>
+            </label>
+          ))}
+        </div>
+
+        <DesignControls block={block} field={field} hasButton />
+      </div>
+    );
+  }
+
   if (block.type === 'cta') {
     return (
       <div className={styles.editorStack}>
@@ -1418,7 +1784,16 @@ function BlockEditor({ block, index, updateBlock, products, media, setError }) {
     );
   }
 
-  return null;
+
+  return (
+    <AdvancedBlockEditor
+      block={block}
+      index={index}
+      updateBlock={updateBlock}
+      media={media}
+      setError={setError}
+    />
+  );
 }
 
 function DesignControls({ block, field, hasButton = false }) {

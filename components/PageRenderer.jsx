@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma';
 import PageLeadForm from './PageLeadForm';
 import PageAnalyticsClient from './PageAnalyticsClient';
 import PageStickyCta from './PageStickyCta';
+import PageOrderForm from './PageOrderForm';
+import PageAdvancedBlocks from './PageAdvancedBlocks';
 import { withMarketingDefaults } from '@/lib/page-marketing';
 import styles from './PageRenderer.module.css';
 
@@ -58,7 +60,7 @@ export default async function PageRenderer({ page, preview = false }) {
   const marketing = withMarketingDefaults(marketingRow);
 
   const productIds = blocks
-    .filter((block) => block.type === 'products')
+    .filter((block) => ['products', 'orderForm'].includes(block.type))
     .flatMap((block) =>
       Array.isArray(block.productIds) ? block.productIds : []
     );
@@ -78,6 +80,7 @@ export default async function PageRenderer({ page, preview = false }) {
           imageUrl: true,
           price: true,
           compareAtPrice: true,
+          stock: true,
         },
       })
     : [];
@@ -134,7 +137,7 @@ export default async function PageRenderer({ page, preview = false }) {
   );
 }
 
-function Block({ block, productMap, page }) {
+function Block({ block, productMap, page, marketing }) {
   if (block.type === 'hero') {
     const overlay = clampNumber(block.overlay, 35, 0, 85) / 100;
     const minHeight = clampNumber(block.minHeight, 520, 260, 800);
@@ -313,6 +316,27 @@ function Block({ block, productMap, page }) {
     );
   }
 
+  if (block.type === 'orderForm') {
+    const list = (block.productIds || [])
+      .map((id) => productMap.get(id))
+      .filter(Boolean);
+
+    return (
+      <section
+        id={block.anchorId || 'order'}
+        className={styles.section}
+        style={sectionStyle(block, { backgroundColor: '#f7faf5' })}
+      >
+        <PageOrderForm
+          block={block}
+          products={list}
+          page={{ id: page.id, title: page.title, slug: page.slug }}
+          thankYouUrl={marketing?.thankYouUrl || ''}
+        />
+      </section>
+    );
+  }
+
   if (block.type === 'cta') {
     return (
       <section
@@ -382,5 +406,5 @@ function Block({ block, productMap, page }) {
     );
   }
 
-  return null;
+  return <PageAdvancedBlocks block={block} />;
 }
