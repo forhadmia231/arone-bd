@@ -62,9 +62,9 @@ export default function StoreHome() {
             </span>
 
             <h2>
-              আপনার পছন্দ,
-              <br />
-              <em>আপনার স্টাইল</em>
+              
+              
+              আপনার পছন্দ, আপনার স্টাইল
               <br />
               ARONE-এর সাথে।
             </h2>
@@ -114,25 +114,18 @@ export default function StoreHome() {
 
           </div>
 
-          <div className="hero-visual">
+<div className="hero-visual">
+  <div
+    className="hero-orbit"
+    aria-hidden="true"
+  />
 
-            <div className="hero-orbit"></div>
-
-            <img
-              src="/products/kadai.svg"
-              alt="Arone Bd Collection"
-            />
-
-            <div className="hero-note">
-              বিশেষ
-              <br />
-
-              <b>কালেকশন</b>
-
-              <span>BY ARONE BD</span>
-            </div>
-
-          </div>
+  <img
+    src="/images/arone-gift-hero.png"
+    alt="Arone Bd Gift Collection"
+    className="hero-gift-image"
+  />
+</div>
 
         </div>
 
@@ -297,9 +290,7 @@ export default function StoreHome() {
             </span>
 
             <h2>
-              প্রতিদিনের জন্য
-              <br />
-              ট্রেন্ডি পছন্দ।
+              প্রতিদিনের জন্য ট্রেন্ডি পছন্দ।
             </h2>
 
             <p>
@@ -316,11 +307,11 @@ export default function StoreHome() {
 
           </div>
 
-          <img
-            src="/products/frypan.svg"
-            alt="Arone Bd Featured Collection"
-            loading="lazy"
-          />
+<img
+  src="/images/gift-lifestyle-banner.png"
+  alt="Arone Bd Gift & Lifestyle Collection"
+  className="promo-gift-image"
+/>
 
         </div>
 

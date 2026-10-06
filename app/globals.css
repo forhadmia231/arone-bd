@@ -1878,4 +1878,270 @@ footer.abg-footer {
   }
 }
 
-   
+   /* =========================================
+   ARONE BD - GIFT HERO IMAGE
+========================================= */
+
+.hero-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 450px;
+  isolation: isolate;
+}
+
+/* পিছনের সুন্দর circular decoration */
+.hero-orbit {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.78) 0%,
+      rgba(239, 245, 225, 0.72) 58%,
+      rgba(222, 236, 196, 0.35) 100%
+    );
+
+  border: 1px solid rgba(127, 157, 85, 0.25);
+
+  box-shadow:
+    0 0 0 38px rgba(186, 210, 152, 0.10),
+    0 0 0 76px rgba(186, 210, 152, 0.07);
+
+  z-index: 0;
+}
+
+/* নতুন transparent gift image */
+.hero-visual > img.hero-gift-image {
+  position: relative;
+  z-index: 2;
+
+  width: min(500px, 100%);
+  height: 420px;
+
+  object-fit: contain;
+
+  /* পুরোনো cookware image-এর circle crop বন্ধ */
+  border-radius: 0;
+
+  /* পুরোনো rotation বন্ধ */
+  transform: none;
+
+  /* transparent PNG-এর জন্য natural shadow */
+  box-shadow: none;
+
+  filter:
+    drop-shadow(
+      0 22px 22px rgba(62, 48, 41, 0.17)
+    );
+}
+
+/* ছোট offer card */
+.hero-note {
+  z-index: 3;
+}
+
+/* Tablet */
+@media (max-width: 1050px) {
+  .hero-visual > img.hero-gift-image {
+    width: 390px;
+    height: 350px;
+  }
+
+  .hero-orbit {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 780px) {
+  .hero-visual {
+    min-height: 310px;
+  }
+
+  .hero-visual > img.hero-gift-image {
+    width: 310px;
+    height: 290px;
+  }
+
+  .hero-orbit {
+    width: 270px;
+    height: 270px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .hero-visual {
+    min-height: 240px;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .hero-visual > img.hero-gift-image {
+    width: 240px;
+    height: 220px;
+  }
+
+  .hero-orbit {
+    width: 205px;
+    height: 205px;
+  }
+}
+
+/* ARONE BD HEADER BRAND LOGO */
+
+.brand-logo-wrap {
+  width: 115px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.brand-image {
+  display: block;
+
+  width: 110px !important;
+  height: 52px !important;
+
+  object-fit: contain !important;
+  object-position: left center;
+
+  border-radius: 0 !important;
+}
+
+/* Tablet */
+@media (max-width: 780px) {
+  .brand-logo-wrap {
+    width: 95px;
+    height: 50px;
+  }
+
+  .brand-image {
+    width: 92px !important;
+    height: 46px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .brand-logo-wrap {
+    width: 82px;
+    height: 44px;
+  }
+
+  .brand-image {
+    width: 80px !important;
+    height: 40px !important;
+  }
+}
+
+/* ===================================
+   ARONE BD RICH TEXT EDITOR
+=================================== */
+
+.arone-rich-editor {
+  width: 100%;
+  border: 1px solid #dbe2d7;
+  border-radius: 9px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.arone-editor-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+
+  padding: 7px;
+
+  background: #f7f9f5;
+  border-bottom: 1px solid #dbe2d7;
+}
+
+.arone-editor-toolbar button {
+  min-width: 34px;
+  height: 32px;
+
+  padding: 4px 8px;
+
+  border: 1px solid #d3dbcf;
+  border-radius: 5px;
+
+  background: #fff;
+  color: #233729;
+
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.arone-editor-toolbar button:hover {
+  background: var(--green-light);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.arone-editor-content {
+  min-height: 180px;
+  padding: 14px;
+
+  outline: none;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.arone-editor-content:empty::before {
+  content: attr(data-placeholder);
+  color: #9ca59b;
+  pointer-events: none;
+}
+
+.arone-editor-content h2 {
+  font-size: 24px;
+  margin: 12px 0;
+}
+
+.arone-editor-content ul,
+.arone-editor-content ol {
+  padding-left: 25px;
+}
+
+.product-description-html {
+  line-height: 1.8;
+  color: #39483d;
+}
+
+.product-description-html h2 {
+  font-size: 25px;
+  margin: 20px 0 10px;
+}
+
+.product-description-html p {
+  margin: 8px 0;
+}
+
+.product-description-html ul,
+.product-description-html ol {
+  padding-left: 25px;
+  margin: 12px 0;
+}
+
+.product-description-html a {
+  color: var(--green);
+  text-decoration: underline;
+}

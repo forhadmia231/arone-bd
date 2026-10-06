@@ -1,5 +1,5 @@
 'use client';
-
+import RichTextEditor from "./RichTextEditor";
 import { useEffect, useMemo, useState } from 'react';
 import { money } from '@/lib/format';
 
@@ -390,20 +390,22 @@ export default function AdminProducts() {
               </select>
             </label>
 
-            <label className="wide">
-              Description
-              <textarea
-                rows="4"
-                value={form.description}
-                onChange={(event) =>
-                  setForm({
-                    ...form,
-                    description:
-                      event.target.value,
-                  })
-                }
-              />
-            </label>
+<div className="wide">
+  <label>
+    Product Description
+  </label>
+
+  <RichTextEditor
+    value={form.description || ""}
+    onChange={(html) =>
+      setForm((prev) => ({
+        ...prev,
+        description: html,
+      }))
+    }
+    placeholder="Product details, benefits, specifications..."
+  />
+</div>
 
             <label className="wide">
               Image URL (HTTPS or local path)

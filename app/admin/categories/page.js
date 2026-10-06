@@ -1,1 +1,11 @@
-import AdminCategories from '@/components/AdminCategories';export const metadata={title:'Categories'};export default function Page(){return <AdminCategories/>}
+import AdminCategories from "@/components/AdminCategories";
+
+export const dynamic = "force-dynamic";
+
+export const metadata = {
+  title: "Categories | Arone Bd",
+};
+
+export default function CategoriesPage() {
+  return <AdminCategories />;
+}

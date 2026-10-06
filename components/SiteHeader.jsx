@@ -258,19 +258,16 @@ export default function SiteHeader() {
   aria-label="Arone Bd Home"
   onClick={closeMenu}
 >
-  <span className="brand-logo-wrap">
-    {siteTheme?.logoUrl ? (
-      <img
-        src={siteTheme.logoUrl}
-        alt="Arone Bd"
-        className="brand-image"
-      />
-    ) : (
-      <span className="brand-mark">
-        A<span>✦</span>
-      </span>
-    )}
-  </span>
+<span className="brand-logo-wrap">
+  <img
+    src={
+      siteTheme?.logoUrl ||
+      "/images/arone-logo.png"
+    }
+    alt="Arone Bd"
+    className="brand-image"
+  />
+</span>
 
   <span className="brand-info">
 
